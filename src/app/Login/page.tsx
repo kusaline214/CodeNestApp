@@ -47,7 +47,11 @@ export default function Page() {
             <FormItem>
               <FormLabel>ユーザー名</FormLabel>
               <FormControl>
-                <Input placeholder="userName" {...field} />
+                <Input
+                  placeholder="userName"
+                  {...field}
+                  autoComplete="username"
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -60,7 +64,12 @@ export default function Page() {
             <FormItem>
               <FormLabel>パスワード</FormLabel>
               <FormControl>
-                <Input placeholder="password" type="password" {...field} />
+                <Input
+                  placeholder="password"
+                  type="password"
+                  {...field}
+                  autoComplete="new-password"
+                />
               </FormControl>
               <FormMessage />
             </FormItem>

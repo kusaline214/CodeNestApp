@@ -58,7 +58,11 @@ export default function Page() {
             <FormItem>
               <FormLabel>ユーザー名</FormLabel>
               <FormControl>
-                <Input placeholder="userName" {...field} />
+                <Input
+                  placeholder="userName"
+                  {...field}
+                  autoComplete="username"
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -71,7 +75,7 @@ export default function Page() {
             <FormItem>
               <FormLabel>メールアドレス</FormLabel>
               <FormControl>
-                <Input placeholder="email" {...field} />
+                <Input placeholder="email" {...field} autoComplete="email" />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -84,7 +88,12 @@ export default function Page() {
             <FormItem>
               <FormLabel>パスワード</FormLabel>
               <FormControl>
-                <Input placeholder="password" type="password" {...field} />
+                <Input
+                  placeholder="password"
+                  type="password"
+                  {...field}
+                  autoComplete="new-password"
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -101,6 +110,7 @@ export default function Page() {
                   placeholder="confirm Password"
                   type="password"
                   {...field}
+                  autoComplete="new-password"
                 />
               </FormControl>
               <FormMessage />
