@@ -4,8 +4,11 @@ import { useTheme } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import UserList from "./UserList/UserList";
+import ActiveProjectList from "./ActiveProjectList/ActiveProjectList";
+import CompanyInfo from "./CompanyInfo/CompanyInfo";
+import ProjectStatus from "./ProjectStatus/ProjectStatus";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -25,11 +28,7 @@ function TabPanel(props: TabPanelProps) {
       aria-labelledby={`full-width-tab-${index}`}
       {...other}
     >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
+      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
     </div>
   );
 }
@@ -64,36 +63,36 @@ export default function FullWidthTabs() {
             <Tab
               label="所属者リスト"
               {...a11yProps(0)}
-              // className="bg-[#ffffff] text-black font-bold"
+              // className="bg-[#252525] text-white font-bold"
             />
             <Tab
               label="案件リスト"
               {...a11yProps(1)}
-              // className="bg-[#ffffff] text-black font-bold"
+              // className="bg-[#252525] text-white font-bold"
             />
             <Tab
               label="提携企業リスト"
               {...a11yProps(2)}
-              // className="bg-[#ffffff] text-black font-bold"
+              // className="bg-[#252525] text-white font-bold"
             />
             <Tab
               label="参画案件"
               {...a11yProps(2)}
-              // className="bg-[#ffffff] text-black font-bold"
+              // className="bg-[#252525] text-white font-bold"
             />
           </Tabs>
         </AppBar>
         <TabPanel value={value} index={0} dir={theme.direction}>
-          所属者リストコンポーネント表示
+          <UserList />
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-          案件リストコンポーネント表示
+          <ActiveProjectList />
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
-          提携企業リストコンポーネント表示
+          <CompanyInfo />
         </TabPanel>
         <TabPanel value={value} index={3} dir={theme.direction}>
-          参画案件表示
+          <ProjectStatus />
         </TabPanel>
       </Box>
     </div>
