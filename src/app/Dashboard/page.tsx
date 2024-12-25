@@ -10,10 +10,18 @@ const testCardList = [
   { source: "/next.svg", title: "ggg", text: "sumple text" },
 ];
 
+const user = { userName: "Taro", userId: "001" };
+
 const page = () => {
   return (
     <div className="p-10">
-      <h2 className=" text-3xl">myMenu</h2>
+      <div className="flex justify-between">
+        <h2 className=" text-3xl">myMenu</h2>
+        <div className="flex gap-3 items-center">
+          <p>{user.userName}さんようこそ</p>
+          <p>userId:{user.userId}</p>
+        </div>
+      </div>
       <hr />
       <div className="my-8 flex flex-wrap  gap-[4rem]">
         {testCardList.map((item) => {
