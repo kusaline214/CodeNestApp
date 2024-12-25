@@ -34,18 +34,13 @@ const items = [
     url: "#",
     icon: Search,
   },
-  {
-    title: "設定",
-    url: "#",
-    icon: Settings,
-  },
 ];
 
 export function AppSidebar() {
   return (
     <Sidebar>
       <SidebarContent>
-        <SidebarGroup>
+        <SidebarGroup className="h-[100vh]">
           <div className="flex justify-between items-center  border-b-2 mb-3">
             <SidebarGroupLabel className="text-xl">DashBoard</SidebarGroupLabel>
             <Avatar className="m-1">
@@ -65,6 +60,16 @@ export function AppSidebar() {
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
+            </SidebarMenu>
+            <SidebarMenu className="absolute bottom-[50px] left-1 ">
+              <SidebarMenuItem className="">
+                <SidebarMenuButton asChild>
+                  <a href="#">
+                    <Settings />
+                    <span>設定</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
