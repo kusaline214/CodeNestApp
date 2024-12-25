@@ -13,6 +13,7 @@ import ListItemText from "@mui/material/ListItemText";
 import { Calendar, Home, Inbox, Search, Settings } from "lucide-react";
 import { SidebarGroupLabel } from "@/components/ui/sidebar";
 import { Avatar, AvatarImage, AvatarFallback } from "@radix-ui/react-avatar";
+import Link from "next/link";
 
 export default function TemporaryDrawer() {
   const [open, setOpen] = React.useState(false);
@@ -129,6 +130,7 @@ export default function TemporaryDrawer() {
         </Avatar>
         <p className="text-xs">myNameIs{userData.userName}</p>
       </Button>
+      <Link href={""}></Link>
       <Drawer open={open} onClose={toggleDrawer(false)}>
         {DrawerList}
       </Drawer>

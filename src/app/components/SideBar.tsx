@@ -1,3 +1,4 @@
+"use client";
 import { Calendar, Home, Inbox, Search, Settings } from "lucide-react";
 
 import {
@@ -34,7 +35,22 @@ const items = [
     url: "#",
     icon: Search,
   },
+  {
+    title: "マイページ",
+    url: "#",
+    icon: Search,
+  },
 ];
+const dashboardLinks = [
+  { title: "参画案件", url: "/Dashboard/ActiveProjectList" },
+  { title: "提携会社一覧", url: "/Dashboard/CompanyInfo" },
+  { title: "案件詳細", url: "/Dashboard/ProjectStatus" },
+  { title: "ユーザーリスト", url: "/Dashboard/UserList" },
+];
+
+// const nowPath = window.location.pathname.split("/");
+// const isDashboard = nowPath.includes("Dashboard");
+const isAdmin = true;
 
 export function AppSidebar() {
   return (
@@ -61,6 +77,20 @@ export function AppSidebar() {
                 </SidebarMenuItem>
               ))}
             </SidebarMenu>
+            <hr />
+            {isAdmin ? (
+              <SidebarMenu>
+                {dashboardLinks.map((item) => (
+                  <SidebarMenuItem key={item.title} className="">
+                    <SidebarMenuButton asChild>
+                      <a href={item.url}>
+                        <span>{item.title}</span>
+                      </a>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                ))}
+              </SidebarMenu>
+            ) : null}
             <SidebarMenu className="absolute bottom-[50px] left-1 ">
               <SidebarMenuItem className="">
                 <SidebarMenuButton asChild>

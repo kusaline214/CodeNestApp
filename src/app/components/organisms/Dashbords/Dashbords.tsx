@@ -1,3 +1,4 @@
+"use client";
 import * as React from "react";
 import { CssVarsProvider } from "@mui/joy/styles";
 import CssBaseline from "@mui/joy/CssBaseline";
@@ -11,18 +12,20 @@ import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
 import DownloadRoundedIcon from "@mui/icons-material/DownloadRounded";
 
-// import Sidebar from "./components/SideBar";
 import OrderTable from "./components/OrderTable";
 import OrderList from "./components/OrderList";
 import Header from "./components/Header";
 
 export default function JoyOrderDashboardTemplate() {
+  const lastPath = window.location.pathname.split("/");
+  const nowPath = lastPath[lastPath.length - 1];
+
   return (
     <CssVarsProvider disableTransitionOnChange>
       <CssBaseline />
       <Box sx={{ display: "flex", minHeight: "100dvh" }}>
         <Header />
-        {/* <Sidebar /> */}
+
         <Box
           component="main"
           className="MainContent"
@@ -60,7 +63,7 @@ export default function JoyOrderDashboardTemplate() {
               <Link
                 underline="hover"
                 color="neutral"
-                href="#some-link"
+                href="/Dashboard"
                 sx={{ fontSize: 12, fontWeight: 500 }}
               >
                 Dashboard
@@ -69,7 +72,7 @@ export default function JoyOrderDashboardTemplate() {
                 color="primary"
                 sx={{ fontWeight: 500, fontSize: 12 }}
               >
-                Orders
+                {nowPath}
               </Typography>
             </Breadcrumbs>
           </Box>

@@ -1,7 +1,7 @@
 import React from "react";
 
-const ActiveProjectList = () => {
+const page = () => {
   return <div>案件リストコンポーネント表示</div>;
 };
 
-export default ActiveProjectList;
+export default page;
