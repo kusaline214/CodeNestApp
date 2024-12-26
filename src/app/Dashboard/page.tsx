@@ -1,13 +1,17 @@
 import React from "react";
 import MenuCard from "../components/organisms/Card/MenuCard";
 const testCardList = [
-  { source: "/next.svg", title: "契約中の案件を確認する", text: "sumple text" },
-  { source: "/next.svg", title: "終了した契約一覧", text: "sumple text" },
-  { source: "/next.svg", title: "請求書発行", text: "sumple text" },
-  { source: "/next.svg", title: "月別請求額確認", text: "sumple text" },
-  { source: "/next.svg", title: "確定申告用機能", text: "sumple text" },
-  { source: "/next.svg", title: "給与明細", text: "sumple text" },
-  { source: "/next.svg", title: "個人情報編集", text: "sumple text" },
+  {
+    source: "/thumbnail.png",
+    title: "契約中の案件を確認する",
+    text: "sample text",
+  },
+  { source: "/thumbnail.png", title: "終了した契約一覧", text: "sample text" },
+  { source: "/thumbnail.png", title: "請求書発行", text: "sample text" },
+  { source: "/thumbnail.png", title: "月別請求額確認", text: "sample text" },
+  { source: "/thumbnail.png", title: "確定申告用機能", text: "sample text" },
+  { source: "/thumbnail.png", title: "給与明細", text: "sample text" },
+  { source: "/thumbnail.png", title: "個人情報編集", text: "sample text" },
 ];
 
 const user = { userName: "Taro", userId: "001" };

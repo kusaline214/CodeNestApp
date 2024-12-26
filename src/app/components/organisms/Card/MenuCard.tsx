@@ -20,6 +20,7 @@ const MenuCard = ({ thumbneil, title, text }: MenuCardType) => {
           height="140"
           image={thumbneil}
           alt="green iguana"
+          className="border-b-2"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">

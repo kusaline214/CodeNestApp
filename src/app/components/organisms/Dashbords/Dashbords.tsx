@@ -17,8 +17,11 @@ import OrderList from "./components/OrderList";
 import Header from "./components/Header";
 
 export default function JoyOrderDashboardTemplate() {
-  const lastPath = window.location.pathname.split("/");
-  const nowPath = lastPath[lastPath.length - 1];
+  const [nowPath, setNowPath] = React.useState("");
+  React.useEffect(() => {
+    const lastPath = window.location.pathname.split("/");
+    setNowPath(lastPath[lastPath.length - 1]);
+  }, []);
 
   return (
     <CssVarsProvider disableTransitionOnChange>
