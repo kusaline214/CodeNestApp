@@ -1,5 +1,13 @@
 "use client";
 import { Calendar, Home, Inbox, Search, Settings } from "lucide-react";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import AddReactionIcon from "@mui/icons-material/AddReaction";
+import AssignmentIcon from "@mui/icons-material/Assignment";
+import ChecklistIcon from "@mui/icons-material/Checklist";
+import BusinessIcon from "@mui/icons-material/Business";
+import CurrencyYenIcon from "@mui/icons-material/CurrencyYen";
+import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
+import AssignmentTurnedInIcon from "@mui/icons-material/AssignmentTurnedIn";
 
 import {
   Sidebar,
@@ -38,14 +46,41 @@ const items = [
   {
     title: "マイページ",
     url: "#",
-    icon: Search,
+    icon: AccountCircleIcon,
+  },
+  {
+    title: "売り上げ確認",
+    url: "#",
+    icon: AccountBalanceWalletIcon,
+  },
+  {
+    title: "請求書発行",
+    url: "/Dashboard/Invoice",
+    icon: AssignmentTurnedInIcon,
   },
 ];
 const dashboardLinks = [
-  { title: "参画案件", url: "/Dashboard/ActiveProjectList" },
-  { title: "提携会社一覧", url: "/Dashboard/CompanyInfo" },
-  { title: "案件詳細", url: "/Dashboard/ProjectStatus" },
-  { title: "ユーザーリスト", url: "/Dashboard/UserList" },
+  {
+    title: "参画案件一覧",
+    url: "/Dashboard/ActiveProjectList",
+    icon: AssignmentIcon,
+  },
+  {
+    title: "提携会社一覧",
+    url: "/Dashboard/CompanyInfo",
+    icon: BusinessIcon,
+  },
+  { title: "手続き一覧", url: "/Dashboard/ProjectStatus", icon: ChecklistIcon },
+  {
+    title: "ユーザー管理",
+    url: "/Dashboard/UserList",
+    icon: AddReactionIcon,
+  },
+  {
+    title: "売り上げ管理",
+    url: "/Dashboard/#",
+    icon: CurrencyYenIcon,
+  },
 ];
 
 // const nowPath = window.location.pathname.split("/");
@@ -80,10 +115,12 @@ export function AppSidebar() {
             <hr />
             {isAdmin ? (
               <SidebarMenu>
+                <h3 className="pl-2 my-1">Admin Menu</h3>
                 {dashboardLinks.map((item) => (
                   <SidebarMenuItem key={item.title} className="">
                     <SidebarMenuButton asChild>
                       <a href={item.url}>
+                        <item.icon />
                         <span>{item.title}</span>
                       </a>
                     </SidebarMenuButton>
