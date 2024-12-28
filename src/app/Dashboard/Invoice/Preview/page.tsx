@@ -1,19 +1,5 @@
 import React from "react";
-type mockDataRypes = {
-  name: string;
-  address: string;
-  invoiceDate: string;
-  dueDate: string;
 
-  items: [
-    {
-      name: string;
-      quantity: string;
-      unitPrice: string;
-      total: number;
-    }
-  ];
-};
 const mockData = {
   name: "宛名",
   address: "住所",
