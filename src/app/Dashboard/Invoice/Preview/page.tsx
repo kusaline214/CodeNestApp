@@ -1,4 +1,19 @@
 import React from "react";
+type mockDataRypes = {
+  name: string;
+  address: string;
+  invoiceDate: string;
+  dueDate: string;
+
+  items: [
+    {
+      name: string;
+      quantity: string;
+      unitPrice: string;
+      total: number;
+    }
+  ];
+};
 const mockData = {
   name: "宛名",
   address: "住所",
@@ -9,34 +24,35 @@ const mockData = {
       name: "item.name",
       quantity: "quantity",
       unitPrice: "unitPrice",
-      total: "total",
+      total: 100,
     },
     {
       name: "item.name",
       quantity: "quantity",
       unitPrice: "unitPrice",
-      total: "total",
+      total: 100,
     },
     {
       name: "item.name",
       quantity: "quantity",
       unitPrice: "unitPrice",
-      total: "total",
+      total: 100,
     },
     {
       name: "item.name",
       quantity: "quantity",
       unitPrice: "unitPrice",
-      total: "total",
+      total: 100,
     },
     {
       name: "item.name",
       quantity: "quantity",
       unitPrice: "unitPrice",
-      total: "total",
+      total: 100,
     },
   ],
 };
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const page = (data: any) => {
   return (
     <div>
