@@ -30,27 +30,27 @@ const items = [
   },
   {
     title: "お知らせ",
-    url: "#",
+    url: "/Dashboard/Info",
     icon: Inbox,
   },
   {
     title: "カレンダー",
-    url: "#",
+    url: "/Dashboard/Calendar",
     icon: Calendar,
   },
   {
     title: "検索",
-    url: "#",
+    url: "/Dashboard/Search",
     icon: Search,
   },
   {
     title: "マイページ",
-    url: "#",
+    url: "/Dashboard/MyPage",
     icon: AccountCircleIcon,
   },
   {
     title: "売り上げ確認",
-    url: "#",
+    url: "/Dashboard/SalesConfirmation",
     icon: AccountBalanceWalletIcon,
   },
   {
