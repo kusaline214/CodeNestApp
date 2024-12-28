@@ -44,7 +44,7 @@ const items = [
     icon: Search,
   },
   {
-    title: "マイページ",
+    title: "住所・振込先変更",
     url: "/Dashboard/MyPage",
     icon: AccountCircleIcon,
   },
@@ -78,7 +78,7 @@ const dashboardLinks = [
   },
   {
     title: "売り上げ管理",
-    url: "/Dashboard/#",
+    url: "/Dashboard/AdminSalesConfirmation",
     icon: CurrencyYenIcon,
   },
 ];
