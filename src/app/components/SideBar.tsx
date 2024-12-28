@@ -58,6 +58,16 @@ const items = [
     url: "/Dashboard/Invoice",
     icon: AssignmentTurnedInIcon,
   },
+  {
+    title: "個人事業主開業届",
+    url: "/Dashboard/Opening",
+    icon: AssignmentTurnedInIcon,
+  },
+  {
+    title: "確定申告について",
+    url: "/Dashboard/Tax",
+    icon: AssignmentTurnedInIcon,
+  },
 ];
 const dashboardLinks = [
   {
@@ -79,6 +89,11 @@ const dashboardLinks = [
   {
     title: "売り上げ管理",
     url: "/Dashboard/AdminSalesConfirmation",
+    icon: CurrencyYenIcon,
+  },
+  {
+    title: "会社設立",
+    url: "/Dashboard/CreateCompany",
     icon: CurrencyYenIcon,
   },
 ];
