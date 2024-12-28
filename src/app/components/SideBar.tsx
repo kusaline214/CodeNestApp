@@ -1,5 +1,5 @@
 "use client";
-import { Calendar, Home, Inbox, Search, Settings } from "lucide-react";
+import { Calendar, Home, Inbox, Settings } from "lucide-react";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import AddReactionIcon from "@mui/icons-material/AddReaction";
 import AssignmentIcon from "@mui/icons-material/Assignment";
@@ -8,6 +8,9 @@ import BusinessIcon from "@mui/icons-material/Business";
 import CurrencyYenIcon from "@mui/icons-material/CurrencyYen";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import AssignmentTurnedInIcon from "@mui/icons-material/AssignmentTurnedIn";
+import FileOpenIcon from "@mui/icons-material/FileOpen";
+import AddBusinessIcon from "@mui/icons-material/AddBusiness";
+import DomainAddIcon from "@mui/icons-material/DomainAdd";
 
 import {
   Sidebar,
@@ -39,11 +42,6 @@ const items = [
     icon: Calendar,
   },
   {
-    title: "検索",
-    url: "/Dashboard/Search",
-    icon: Search,
-  },
-  {
     title: "住所・振込先変更",
     url: "/Dashboard/MyPage",
     icon: AccountCircleIcon,
@@ -61,12 +59,12 @@ const items = [
   {
     title: "個人事業主開業届",
     url: "/Dashboard/Opening",
-    icon: AssignmentTurnedInIcon,
+    icon: AddBusinessIcon,
   },
   {
     title: "確定申告について",
     url: "/Dashboard/Tax",
-    icon: AssignmentTurnedInIcon,
+    icon: FileOpenIcon,
   },
 ];
 const dashboardLinks = [
@@ -94,7 +92,7 @@ const dashboardLinks = [
   {
     title: "会社設立",
     url: "/Dashboard/CreateCompany",
-    icon: CurrencyYenIcon,
+    icon: DomainAddIcon,
   },
 ];
 
