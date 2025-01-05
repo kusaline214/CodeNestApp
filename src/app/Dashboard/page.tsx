@@ -1,17 +1,60 @@
 import React from "react";
 import MenuCard from "../components/organisms/Card/MenuCard";
-const testCardList = [
+import Link from "next/link";
+
+type testCardListTypes = {
+  source: string;
+  title: string;
+  text: string;
+  href: string;
+  target?: string;
+  rel?: string;
+};
+const testCardList: testCardListTypes[] = [
+  {
+    source: "/card1.jpg",
+    title: "貸与PC環境構築",
+    text: "FigJamで弊社のプロジェクト内容が確認できます。※figmaのアカウントが必要です。",
+    href: "https://www.figma.com/board/xfNXYPvsNxXj2k6PmGqK0o/%E7%84%A1%E9%A1%8C?node-id=0-1&t=5t8C7Od40mChrlqt-1",
+    target: "_brank",
+    rel: "noopener noreferrer",
+  },
   {
     source: "/thumbnail.png",
-    title: "契約中の案件を確認する",
+    title: "終了した契約一覧",
     text: "sample text",
+    href: "",
   },
-  { source: "/thumbnail.png", title: "終了した契約一覧", text: "sample text" },
-  { source: "/thumbnail.png", title: "請求書発行", text: "sample text" },
-  { source: "/thumbnail.png", title: "月別請求額確認", text: "sample text" },
-  { source: "/thumbnail.png", title: "確定申告用機能", text: "sample text" },
-  { source: "/thumbnail.png", title: "給与明細", text: "sample text" },
-  { source: "/thumbnail.png", title: "個人情報編集", text: "sample text" },
+  {
+    source: "/thumbnail.png",
+    title: "請求書発行",
+    text: "sample text",
+    href: "",
+  },
+  {
+    source: "/thumbnail.png",
+    title: "月別請求額確認",
+    text: "sample text",
+    href: "",
+  },
+  {
+    source: "/thumbnail.png",
+    title: "確定申告用機能",
+    text: "sample text",
+    href: "",
+  },
+  {
+    source: "/thumbnail.png",
+    title: "給与明細",
+    text: "sample text",
+    href: "",
+  },
+  {
+    source: "/thumbnail.png",
+    title: "個人情報編集",
+    text: "sample text",
+    href: "",
+  },
 ];
 
 const user = { userName: "Taro", userId: "001" };
@@ -30,12 +73,14 @@ const page = () => {
       <div className="my-8 flex flex-wrap  gap-[4rem]">
         {testCardList.map((item) => {
           return (
-            <MenuCard
-              key={item.title}
-              thumbneil={item.source}
-              title={item.title}
-              text={item.text}
-            />
+            <Link href={item.href} target={item.target} rel={item.rel}>
+              <MenuCard
+                key={item.title}
+                thumbneil={item.source}
+                title={item.title}
+                text={item.text}
+              />
+            </Link>
           );
         })}
       </div>
