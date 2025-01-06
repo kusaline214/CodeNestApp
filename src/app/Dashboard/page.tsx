@@ -71,11 +71,15 @@ const page = () => {
       </div>
       <hr />
       <div className="my-8 flex flex-wrap  gap-[4rem]">
-        {testCardList.map((item) => {
+        {testCardList.map((item, index) => {
           return (
-            <Link href={item.href} target={item.target} rel={item.rel}>
+            <Link
+              href={item.href}
+              target={item.target}
+              rel={item.rel}
+              key={index}
+            >
               <MenuCard
-                key={item.title}
                 thumbneil={item.source}
                 title={item.title}
                 text={item.text}
