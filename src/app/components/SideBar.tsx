@@ -42,6 +42,11 @@ const items = [
     icon: Calendar,
   },
   {
+    title: "レポート",
+    url: "/Dashboard/CashReport",
+    icon: Calendar,
+  },
+  {
     title: "住所・振込先変更",
     url: "/Dashboard/MyPage",
     icon: AccountCircleIcon,
