@@ -14,7 +14,7 @@ const testCardList: testCardListTypes[] = [
   {
     source: "/card1.jpg",
     title: "貸与PC環境構築",
-    text: "FigJamで弊社のプロジェクト内容が確認できます。※figmaのアカウントが必要です。",
+    text: "FigJamで弊社のプロジェクト内容が確認できます。",
     href: "https://www.figma.com/board/xfNXYPvsNxXj2k6PmGqK0o/%E7%84%A1%E9%A1%8C?node-id=0-1&t=5t8C7Od40mChrlqt-1",
     target: "_brank",
     rel: "noopener noreferrer",
