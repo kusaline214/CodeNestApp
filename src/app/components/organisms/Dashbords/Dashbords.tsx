@@ -10,14 +10,17 @@ import Typography from "@mui/joy/Typography";
 
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
-import DownloadRoundedIcon from "@mui/icons-material/DownloadRounded";
 
 import OrderTable from "./components/OrderTable";
 import OrderList from "./components/OrderList";
 import Header from "./components/Header";
+import UserProfileForm from "./components/UserProfileForm";
 
 export default function JoyOrderDashboardTemplate() {
   const [nowPath, setNowPath] = React.useState("");
+  const [openModal, setOpenModal] = React.useState(false); // モーダルの状態を管理
+
+
   React.useEffect(() => {
     const lastPath = window.location.pathname.split("/");
     setNowPath(lastPath[lastPath.length - 1]);
@@ -95,15 +98,17 @@ export default function JoyOrderDashboardTemplate() {
             </Typography>
             <Button
               color="primary"
-              startDecorator={<DownloadRoundedIcon />}
               size="sm"
+              onClick={() => setOpenModal(true)} // モーダルを開く
             >
-              Download PDF
+              ユーザー追加
             </Button>
           </Box>
           <OrderTable />
           <OrderList />
-        </Box>
+          <UserProfileForm openModal={openModal} setOpenModal={setOpenModal}/>
+
+          </Box>
       </Box>
     </CssVarsProvider>
   );
