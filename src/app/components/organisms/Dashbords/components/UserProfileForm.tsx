@@ -81,8 +81,12 @@ const UserProfileForm: React.FC<UserProfileFormProps> = ({
   openModal,
   setOpenModal,
 }) => {
-  const {register,handleSubmit,reset,formState: { errors }, // ここでエラー情報を取得
-} = useForm();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors }, // ここでエラー情報を取得
+  } = useForm();
   // フォーム管理用のフック
   const [isPrefectureOpen, setIsPrefectureOpen] = useState(false);
   const [selectedPrefecture, setSelectedPrefecture] = useState("");
@@ -288,7 +292,7 @@ const UserProfileForm: React.FC<UserProfileFormProps> = ({
                   郵便番号
                 </label>
                 <input
-                  {...register("address", { required: true })}
+                  {...register("zipcode", { required: true })}
                   type="text"
                   placeholder="郵便番号を入力"
                   style={{
@@ -297,8 +301,25 @@ const UserProfileForm: React.FC<UserProfileFormProps> = ({
                     borderRadius: "4px",
                     border: "1px solid #ccc",
                   }}
+                  maxLength={8} // 郵便番号の形式 (XXX-XXXX) に合わせて最大文字数を指定
+                  onChange={(e) => {
+                    // 入力値を取得
+                    let value = e.target.value;
+
+                    // 数字とハイフン以外を削除
+                    value = value.replace(/[^0-9]/g, "");
+
+                    // 3文字目にハイフンを自動追加
+                    if (value.length > 3) {
+                      value = `${value.slice(0, 3)}-${value.slice(3)}`;
+                    }
+
+                    // 値を手動でフォームにセット
+                    e.target.value = value;
+                  }}
                 />
               </div>
+
               <div style={{ marginBottom: "16px", position: "relative" }}>
                 <label style={{ display: "block", marginBottom: "8px" }}>
                   都道府県
