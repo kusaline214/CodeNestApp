@@ -81,7 +81,9 @@ const UserProfileForm: React.FC<UserProfileFormProps> = ({
   openModal,
   setOpenModal,
 }) => {
-  const { register, handleSubmit, reset } = useForm(); // フォーム管理用のフック
+  const {register,handleSubmit,reset,formState: { errors }, // ここでエラー情報を取得
+} = useForm();
+  // フォーム管理用のフック
   const [isPrefectureOpen, setIsPrefectureOpen] = useState(false);
   const [selectedPrefecture, setSelectedPrefecture] = useState("");
   const [selectedMbti, setSelectedMbti] = useState("");
@@ -91,6 +93,7 @@ const UserProfileForm: React.FC<UserProfileFormProps> = ({
     setOpenModal(false); // モーダルを閉じる
     reset(); // フォームをリセット
   };
+
   // モーダル表示中に背景を固定する処理
   useEffect(() => {
     if (openModal) {
@@ -139,7 +142,7 @@ const UserProfileForm: React.FC<UserProfileFormProps> = ({
               >
                 <div style={{ flex: 1 }}>
                   <label style={{ display: "block", marginBottom: "8px" }}>
-                    名前:
+                    名前
                   </label>
                   <input
                     {...register("lastName", { required: true })}
@@ -185,11 +188,11 @@ const UserProfileForm: React.FC<UserProfileFormProps> = ({
               >
                 <div style={{ flex: 1 }}>
                   <label style={{ display: "block", marginBottom: "8px" }}>
-                    名前(フリガナ):
+                    名前(フリガナ)
                   </label>
                   <input
-                    {...register("lastName", {
-                      required: true,
+                    {...register("lastNameKana", {
+                      required: "姓(フリガナ)は必須項目です",
                       validate: (value) =>
                         /^[ァ-ンー]*$/.test(value) ||
                         "カタカナのみ入力してください",
@@ -204,6 +207,11 @@ const UserProfileForm: React.FC<UserProfileFormProps> = ({
                       boxSizing: "border-box",
                     }}
                   />
+                  {errors.lastNameKana && (
+                    <p style={{ color: "red", fontSize: "12px" }}>
+                      {String(errors.lastNameKana.message)}
+                    </p>
+                  )}
                 </div>
 
                 <div style={{ flex: 1 }}>
@@ -217,8 +225,8 @@ const UserProfileForm: React.FC<UserProfileFormProps> = ({
                     ダミー
                   </label>
                   <input
-                    {...register("firstName", {
-                      required: true,
+                    {...register("firstNameKana", {
+                      required: "名(フリガナ)は必須項目です",
                       validate: (value) =>
                         /^[ァ-ンー]*$/.test(value) ||
                         "カタカナのみ入力してください",
@@ -233,12 +241,17 @@ const UserProfileForm: React.FC<UserProfileFormProps> = ({
                       boxSizing: "border-box",
                     }}
                   />
+                  {errors.firstNameKana && (
+                    <p style={{ color: "red", fontSize: "12px" }}>
+                      {String(errors.firstNameKana.message)}
+                    </p>
+                  )}
                 </div>
               </div>
 
               <div style={{ marginBottom: "16px" }}>
                 <label style={{ display: "block", marginBottom: "8px" }}>
-                  メールアドレス:
+                  メールアドレス
                 </label>
                 <input
                   {...register("email", { required: true })}
@@ -255,7 +268,7 @@ const UserProfileForm: React.FC<UserProfileFormProps> = ({
 
               <div style={{ marginBottom: "16px" }}>
                 <label style={{ display: "block", marginBottom: "8px" }}>
-                  電話番号:
+                  電話番号
                 </label>
                 <input
                   {...register("phone", { required: true })}
@@ -272,7 +285,7 @@ const UserProfileForm: React.FC<UserProfileFormProps> = ({
 
               <div style={{ marginBottom: "16px" }}>
                 <label style={{ display: "block", marginBottom: "8px" }}>
-                  郵便番号:
+                  郵便番号
                 </label>
                 <input
                   {...register("address", { required: true })}
@@ -288,7 +301,7 @@ const UserProfileForm: React.FC<UserProfileFormProps> = ({
               </div>
               <div style={{ marginBottom: "16px", position: "relative" }}>
                 <label style={{ display: "block", marginBottom: "8px" }}>
-                  都道府県:
+                  都道府県
                 </label>
                 <div
                   style={{
@@ -347,7 +360,7 @@ const UserProfileForm: React.FC<UserProfileFormProps> = ({
 
               <div style={{ marginBottom: "16px" }}>
                 <label style={{ display: "block", marginBottom: "8px" }}>
-                  市区町村:
+                  市区町村
                 </label>
                 <input
                   {...register("address", { required: true })}
@@ -364,7 +377,7 @@ const UserProfileForm: React.FC<UserProfileFormProps> = ({
 
               <div style={{ marginBottom: "16px" }}>
                 <label style={{ display: "block", marginBottom: "8px" }}>
-                  番地:
+                  番地
                 </label>
                 <input
                   {...register("address", { required: true })}
@@ -380,7 +393,7 @@ const UserProfileForm: React.FC<UserProfileFormProps> = ({
               </div>
               <div style={{ marginBottom: "16px" }}>
                 <label style={{ display: "block", marginBottom: "8px" }}>
-                  ビル・マンション名:
+                  ビル・マンション名・部屋番号
                 </label>
                 <input
                   {...register("address", { required: true })}
@@ -397,7 +410,7 @@ const UserProfileForm: React.FC<UserProfileFormProps> = ({
 
               <div style={{ marginBottom: "16px" }}>
                 <label style={{ display: "block", marginBottom: "8px" }}>
-                  生年月日:
+                  生年月日
                 </label>
                 <input
                   {...register("birthdate", { required: true })}
@@ -414,7 +427,7 @@ const UserProfileForm: React.FC<UserProfileFormProps> = ({
 
               <div style={{ marginBottom: "16px", position: "relative" }}>
                 <label style={{ display: "block", marginBottom: "8px" }}>
-                  MBTI:
+                  MBTI
                 </label>
                 <div
                   style={{
