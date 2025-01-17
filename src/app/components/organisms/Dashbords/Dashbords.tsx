@@ -7,10 +7,8 @@ import Button from "@mui/joy/Button";
 import Breadcrumbs from "@mui/joy/Breadcrumbs";
 import Link from "@mui/joy/Link";
 import Typography from "@mui/joy/Typography";
-
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
-
 import OrderTable from "./components/OrderTable";
 import OrderList from "./components/OrderList";
 import Header from "./components/Header";
@@ -19,7 +17,6 @@ import UserProfileForm from "./components/UserProfileForm";
 export default function JoyOrderDashboardTemplate() {
   const [nowPath, setNowPath] = React.useState("");
   const [openModal, setOpenModal] = React.useState(false); // モーダルの状態を管理
-
 
   React.useEffect(() => {
     const lastPath = window.location.pathname.split("/");
@@ -31,7 +28,6 @@ export default function JoyOrderDashboardTemplate() {
       <CssBaseline />
       <Box sx={{ display: "flex", minHeight: "100dvh" }}>
         <Header />
-
         <Box
           component="main"
           className="MainContent"
@@ -106,9 +102,8 @@ export default function JoyOrderDashboardTemplate() {
           </Box>
           <OrderTable />
           <OrderList />
-          <UserProfileForm openModal={openModal} setOpenModal={setOpenModal}/>
-
-          </Box>
+          <UserProfileForm openModal={openModal} setOpenModal={setOpenModal} />
+        </Box>
       </Box>
     </CssVarsProvider>
   );
